@@ -1,0 +1,29 @@
+﻿<sap:ActivityDesigner x:Class="Thermo.Workflows.RealTime.ProgressTrackingInitializerDesigner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation" 
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation">
+    <sap:ActivityDesigner.Resources>
+        <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+    </sap:ActivityDesigner.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock>Target: </TextBlock>
+        <sapv:ExpressionTextBox Grid.Column="1" UseLocationExpression="True" 
+                Expression="{Binding Path=ModelItem.RootWorkItem, Mode=TwoWay,
+                Converter={StaticResource ArgumentToExpressionConverter},
+                ConverterParameter=Out}" OwnerActivity="{Binding Path=ModelItem}"
+                MinLines="1" MaxLines="1" MinWidth="50" HintText="[Observed work item]"/>
+
+        <sap:WorkflowItemPresenter Grid.Row="1" Grid.ColumnSpan="2"
+            Item="{Binding Path=ModelItem.ProgressTrackingScope, Mode=TwoWay}" HintText="Tracking scope"/>
+    </Grid>
+</sap:ActivityDesigner>

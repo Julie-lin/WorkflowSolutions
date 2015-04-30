@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{466D0B5E-2BF7-4F0C-BE2C-54393403800E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mneme.Workflows</RootNamespace>
+    <AssemblyName>Mneme.Workflows</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsyncNodeResult.cs" />
+    <Compile Include="CreateBatchActivity.cs" />
+    <Compile Include="ProcessAsyncResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleWorkflowExecutionActivity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\AppData\AppData.csproj">
+      <Project>{47b2d0ef-40d6-4f11-ad25-c269d23c6759}</Project>
+      <Name>AppData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Mneme.Data\Mneme.Data.csproj">
+      <Project>{d133ee97-0b16-4313-8731-0614583315e2}</Project>
+      <Name>Mneme.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libs\Mneme.WorkflowSolver\Mneme.WorkflowSolver.csproj">
+      <Project>{944bf411-b564-4d98-9262-fac3b1b91c89}</Project>
+      <Name>Mneme.WorkflowSolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libs\RawDatabaseAccess\RawDatabaseAccess.csproj">
+      <Project>{faa288a9-20fd-4925-95cd-dc136a72b87a}</Project>
+      <Name>RawDatabaseAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Thermo.Data.Hierarchical\Thermo.Data.Hierarchical.csproj">
+      <Project>{b4551902-367c-4643-8828-76886b803623}</Project>
+      <Name>Thermo.Data.Hierarchical</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Workflow.Activities\Workflow.Activities.csproj">
+      <Project>{67CA57DB-0F28-4235-84F9-36A9AF320E9F}</Project>
+      <Name>Workflow.Activities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Workflow.Data\Workflow.Data.csproj">
+      <Project>{26793b51-70ab-495a-a42f-41a9ad1d75af}</Project>
+      <Name>Workflow.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamlAppDef Include="PostUploadActivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </XamlAppDef>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

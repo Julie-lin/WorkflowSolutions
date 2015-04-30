@@ -1,0 +1,32 @@
+﻿<sap:ActivityDesigner x:Class="Thermo.Workflows.Cancelation.WorkItemCancelationScopeDesigner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation" 
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation">
+    <sap:ActivityDesigner.Resources>
+        <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter"/>
+    </sap:ActivityDesigner.Resources>
+    <StackPanel>
+    <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock>Cacellable Work Item: </TextBlock>
+            <sapv:ExpressionTextBox Grid.Column="1" UseLocationExpression="True" 
+                Expression="{Binding Path=ModelItem.CancellableWorkItem, Mode=TwoWay,
+                Converter={StaticResource ArgumentToExpressionConverter},
+                ConverterParameter=Out}" OwnerActivity="{Binding Path=ModelItem}"
+                MinLines="1" MaxLines="1" MinWidth="50" HintText="[IWorkItemWithChildren]"/>
+        </Grid>
+        <Expander Header="Action Handler" IsExpanded="True">
+            <sap:WorkflowItemPresenter Item="{Binding Path=ModelItem.Action, Mode=TwoWay}" 
+                                       HintText="Action Handler" />
+        </Expander>
+        <Expander Header="Cancelation Handler" IsExpanded="False">
+            <sap:WorkflowItemPresenter Item="{Binding Path=ModelItem.Cancelation, Mode=TwoWay}" 
+                                       HintText="Cancelation Handler"/>
+        </Expander>
+    </StackPanel>
+</sap:ActivityDesigner>

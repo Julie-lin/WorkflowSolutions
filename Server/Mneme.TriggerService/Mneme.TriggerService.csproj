@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A84E3F41-3C73-48D6-A5D4-756586BEFCF6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mneme.TriggerService</RootNamespace>
+    <AssemblyName>Mneme.TriggerService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Trigger.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Trigger.Designer.cs">
+      <DependentUpon>Trigger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Trigger.resx">
+      <DependentUpon>Trigger.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Mneme.Components\Mneme.Components.csproj">
+      <Project>{e9dfd8bb-4305-4397-8996-549c4bf4dad6}</Project>
+      <Name>Mneme.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libs\Mneme.ProcessLocator\Mneme.ProcessLocator.csproj">
+      <Project>{0743d452-8c36-42c3-85e0-9088cf251ef5}</Project>
+      <Name>Mneme.ProcessLocator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libs\Mneme.Utility\Mneme.Utility.csproj">
+      <Project>{8c76935b-aeba-4f23-a3f5-18b4c37cf25e}</Project>
+      <Name>Mneme.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libs\Mneme.WCFUtility\Mneme.WCFUtility.csproj">
+      <Project>{004eeaea-85f7-4390-85da-4ec5b51b01ac}</Project>
+      <Name>Mneme.WCFUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libs\RawDatabaseAccess\RawDatabaseAccess.csproj">
+      <Project>{faa288a9-20fd-4925-95cd-dc136a72b87a}</Project>
+      <Name>RawDatabaseAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Workflow\Workflow.Data\Workflow.Data.csproj">
+      <Project>{26793b51-70ab-495a-a42f-41a9ad1d75af}</Project>
+      <Name>Workflow.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D133EE97-0B16-4313-8731-0614583315E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mneme.Data</RootNamespace>
+    <AssemblyName>Mneme.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\Dependencies\Others\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThermoFisher.CommonCore.Data">
+      <HintPath>..\..\Dependencies\CommonCore\Release\ThermoFisher.CommonCore.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BasePeak.cs" />
+    <Compile Include="FrameDataPoint.cs" />
+    <Compile Include="IdNamePair.cs" />
+    <Compile Include="Interfaces\IMenePeakDiscover.cs" />
+    <Compile Include="Interfaces\IPeakTableAccess.cs" />
+    <Compile Include="Interfaces\IWorkflowDbWriter.cs" />
+    <Compile Include="MassIntensityCharge.cs" />
+    <Compile Include="Interfaces\IMnemeDatabaseReview.cs" />
+    <Compile Include="Interfaces\IMnemePeak.cs" />
+    <Compile Include="Interfaces\IRawDataSummary.cs" />
+    <Compile Include="Interfaces\ITraceTableAccess.cs" />
+    <Compile Include="MnemeBatch.cs" />
+    <Compile Include="MnemeChromatogramData.cs" />
+    <Compile Include="MnemeChromatogramSettings.cs" />
+    <Compile Include="MnemeChromatogramSignal.cs" />
+    <Compile Include="MnemePeak.cs" />
+    <Compile Include="MnemeSampleJob.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RawScanBlob.cs" />
+    <Compile Include="RawTraceHelper.cs" />
+    <Compile Include="MnemeRunHeader.cs" />
+    <Compile Include="ScanMassIntensityPair.cs" />
+    <Compile Include="ToleranceUnits.cs" />
+    <Compile Include="TraceTable.cs" />
+    <Compile Include="XIC.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libs\Mneme.Utility\Mneme.Utility.csproj">
+      <Project>{8c76935b-aeba-4f23-a3f5-18b4c37cf25e}</Project>
+      <Name>Mneme.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Workflow\Thermo.Data.Hierarchical\Thermo.Data.Hierarchical.csproj">
+      <Project>{B4551902-367C-4643-8828-76886B803623}</Project>
+      <Name>Thermo.Data.Hierarchical</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Workflow\Workflow.Data\Workflow.Data.csproj">
+      <Project>{26793b51-70ab-495a-a42f-41a9ad1d75af}</Project>
+      <Name>Workflow.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppData\AppData.csproj">
+      <Project>{47b2d0ef-40d6-4f11-ad25-c269d23c6759}</Project>
+      <Name>AppData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

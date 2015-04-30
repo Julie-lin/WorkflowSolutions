@@ -1,0 +1,112 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Mneme.Workflows.PostUploadActivity"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:local="clr-namespace:Mneme.Workflows"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:wa="clr-namespace:Workflow.Activities;assembly=Workflow.Activities"
+ xmlns:wd="clr-namespace:Workflow.Data;assembly=Workflow.Data"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ExperimentId" Type="InArgument(x:Int64)" />
+    <x:Property Name="ComponentList" Type="InArgument(scg:List(wd:ComponentNode))" />
+    <x:Property Name="SessionName" Type="InArgument(s:Guid)" />
+    <x:Property Name="BatchId" Type="InArgument(s:Guid)" />
+    <x:Property Name="MeasurementId" Type="InArgument(x:Int64)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>Mneme.Workflows.PostUploadActivity_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>Workflow.Data</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>AppData</AssemblyReference>
+      <AssemblyReference>Mneme.Data</AssemblyReference>
+      <AssemblyReference>RawDatabaseAccess</AssemblyReference>
+      <AssemblyReference>Thermo.Data.Hierarchical</AssemblyReference>
+      <AssemblyReference>Workflow.Activities</AssemblyReference>
+      <AssemblyReference>Workflow.Data</AssemblyReference>
+      <AssemblyReference>Mneme.WorkflowSolver</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Mneme.Workflows</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Post Upload Activity" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="wd:ProcessBatch" Name="batch" />
+    </Sequence.Variables>
+    <local:CreateBatchActivity ConnectionString="{x:Null}" sap2010:WorkflowViewState.IdRef="CreateBatchActivity_1">
+      <local:CreateBatchActivity.Batch>
+        <OutArgument x:TypeArguments="wd:ProcessBatch">
+          <mca:CSharpReference x:TypeArguments="wd:ProcessBatch">batch</mca:CSharpReference>
+        </OutArgument>
+      </local:CreateBatchActivity.Batch>
+      <local:CreateBatchActivity.BatchId>
+        <InArgument x:TypeArguments="s:Guid">
+          <mca:CSharpValue x:TypeArguments="s:Guid">BatchId</mca:CSharpValue>
+        </InArgument>
+      </local:CreateBatchActivity.BatchId>
+      <local:CreateBatchActivity.ExperimentId>
+        <InArgument x:TypeArguments="x:Int64">
+          <mca:CSharpValue x:TypeArguments="x:Int64">ExperimentId</mca:CSharpValue>
+        </InArgument>
+      </local:CreateBatchActivity.ExperimentId>
+      <local:CreateBatchActivity.MeasurementId>
+        <InArgument x:TypeArguments="x:Int64">
+          <mca:CSharpValue x:TypeArguments="x:Int64">MeasurementId</mca:CSharpValue>
+        </InArgument>
+      </local:CreateBatchActivity.MeasurementId>
+    </local:CreateBatchActivity>
+    <wa:CompositeBatchSequentialActivity SessionName="{x:Null}" sap2010:WorkflowViewState.IdRef="CompositeBatchSequentialActivity_1">
+      <wa:CompositeBatchSequentialActivity.Batch>
+        <InArgument x:TypeArguments="wd:ProcessBatch">
+          <mca:CSharpValue x:TypeArguments="wd:ProcessBatch">batch</mca:CSharpValue>
+        </InArgument>
+      </wa:CompositeBatchSequentialActivity.Batch>
+      <wa:CompositeBatchSequentialActivity.ComponentList>
+        <InArgument x:TypeArguments="scg:List(wd:ComponentNode)">
+          <mca:CSharpValue x:TypeArguments="scg:List(wd:ComponentNode)">ComponentList</mca:CSharpValue>
+        </InArgument>
+      </wa:CompositeBatchSequentialActivity.ComponentList>
+    </wa:CompositeBatchSequentialActivity>
+    <sads:DebugSymbol.Symbol>d09DOlxUaGVybW9GaXNoZXJccHJvamVjdHNcTW5lbWVcV29ya2Zsb3dcTW5lbWUuV29ya2Zsb3dzXFBvc3RVcGxvYWRBY3Rpdml0eS54YW1sCToDYQ4CAQE+BVMhAgERVAVfKwIBAkYLRk4CASdLC0tUAgEgUAtQVQIBGUELQV0CARJcC1xoAgEKVwtXVQIBAw==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="CreateBatchActivity_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="CompositeBatchSequentialActivity_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,208">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Mneme.Workflows.PostUploadActivity_1" sap:VirtualizedContainerService.HintSize="262,288" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9DFD8BB-4305-4397-8996-549C4BF4DAD6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mneme.Components</RootNamespace>
+    <AssemblyName>Mneme.Components</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThermoFisher.CommonCore.Data, Version=2.0.87.0, Culture=neutral, PublicKeyToken=1aef06afb5abd953, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\CommonCore\Release\Bin\ThermoFisher.CommonCore.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BatchNode.cs" />
+    <Compile Include="ComponentConstants.cs" />
+    <Compile Include="DefaultComponentResult.cs" />
+    <Compile Include="DefaultResultNode.cs" />
+    <Compile Include="GroupNode.cs" />
+    <Compile Include="HelloWorldNode.cs" />
+    <Compile Include="HelloWorldResult.cs" />
+    <Compile Include="IsotopicClusterNode.cs" />
+    <Compile Include="IsotopicSearchNode.cs" />
+    <Compile Include="MMDFFilterNode.cs" />
+    <Compile Include="PeakAnnotationNode.cs" />
+    <Compile Include="PeakDiscoverNode.cs" />
+    <Compile Include="PMFNode.cs" />
+    <Compile Include="ProcessHolderNode.cs" />
+    <Compile Include="ReportNode.cs" />
+    <Compile Include="StartupComponentNode.cs" />
+    <Compile Include="TestComponents\BatchComponentNode.cs" />
+    <Compile Include="TestComponents\ClientComponentNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestComponents\ClientComponentNodeA.cs" />
+    <Compile Include="TestComponents\ClientComponentNodeB.cs" />
+    <Compile Include="TestComponents\ClientSampleJob.cs" />
+    <Compile Include="TestComponents\GroupComponentNode.cs" />
+    <Compile Include="TestComponents\TestDataCreator.cs" />
+    <Compile Include="TraceBuildResult.cs" />
+    <Compile Include="TraceBuldNode.cs" />
+    <Compile Include="TreeTopNode.cs" />
+    <Compile Include="TreetopResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Workflow\Thermo.Data.Hierarchical\Thermo.Data.Hierarchical.csproj">
+      <Project>{b4551902-367c-4643-8828-76886b803623}</Project>
+      <Name>Thermo.Data.Hierarchical</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Workflow\Workflow.Data\Workflow.Data.csproj">
+      <Project>{26793b51-70ab-495a-a42f-41a9ad1d75af}</Project>
+      <Name>Workflow.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppData\AppData.csproj">
+      <Project>{47b2d0ef-40d6-4f11-ad25-c269d23c6759}</Project>
+      <Name>AppData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

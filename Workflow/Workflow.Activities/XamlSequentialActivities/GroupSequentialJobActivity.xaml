@@ -1,0 +1,99 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Workflow.Activities.GroupSequentialJobActivity"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:local="clr-namespace:Workflow.Activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:wd="clr-namespace:Workflow.Data;assembly=Workflow.Data"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Batch" Type="InArgument(wd:ProcessBatch)" />
+    <x:Property Name="ComponentList" Type="InArgument(scg:List(wd:ComponentNode))" />
+    <x:Property Name="Group" Type="InArgument(wd:ProcessGroup)" />
+    <x:Property Name="StartNode" Type="InArgument(wd:ComponentNode)" />
+    <x:Property Name="NextNode" Type="OutArgument(wd:ComponentNode)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Workflow.Activities.GroupSequentialJobActivity_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities.Debugger</x:String>
+      <x:String>System.Activities.Debugger.Symbol</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>Thermo.Data.Hierarchical</x:String>
+      <x:String>Workflow.Data</x:String>
+      <x:String>Workflow.Data.Interfaces</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Workflow.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>Thermo.Data.Hierarchical</AssemblyReference>
+      <AssemblyReference>Workflow.Data</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>Workflow.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Group sequential block" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ForEach x:TypeArguments="wd:ProcessJob" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[(CType(Group.Jobs, IEnumerable(Of ProcessJob)))]">
+      <ActivityAction x:TypeArguments="wd:ProcessJob">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="wd:ProcessJob" Name="job" />
+        </ActivityAction.Argument>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <local:AsynJobActivity Batch="[Batch]" ComponentParameters="[ComponentList]" Group="[Group]" sap2010:WorkflowViewState.IdRef="AsynJobActivity_1" Job="[job]" NextParameter="[NextNode]" StartParameter="[StartNode]" />
+        </Sequence>
+      </ActivityAction>
+    </ForEach>
+    <sads:DebugSymbol.Symbol>d2tDOlxUaGVybW9GaXNoZXJcTW5lbWVcV29ya2Zsb3dcV29ya2Zsb3cuQWN0aXZpdGllc1xYYW1sU2VxdWVudGlhbEFjdGl2aXRpZXNcR3JvdXBTZXF1ZW50aWFsSm9iQWN0aXZpdHkueGFtbAtBA00OAgEBQgVLDwIBAkJjQpYBAgEQRwlJFAIBA0gLSOIBAgEESF5IZwIBDkhGSFcCAQ1I0gFI3wECAQtItgFIwgECAQlIoAFIpwECAQdIKEgxAgEF</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="AsynJobActivity_1" sap:VirtualizedContainerService.HintSize="200,22.4" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222.4,147.2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_1" sap:VirtualizedContainerService.HintSize="313.6,300.8" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="336,425.6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Workflow.Activities.GroupSequentialJobActivity_1" sap:VirtualizedContainerService.HintSize="376,505.6" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

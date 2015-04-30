@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="DiagramDesigner.Views.ResultLeftPane"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:my="clr-namespace:DiagramDesigner.Views" mc:Ignorable="d" 
+             d:DesignHeight="403" d:DesignWidth="217">
+    <Grid Margin="0,0,0,-39">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <!--<TreeView Grid.Row="0" x:Name="WorkItemTree" Grid.Column="0" ItemsSource="{Binding Path=ProgressMonitor.PendingWorkItems}"/>-->
+        <TreeView Grid.Row="0" x:Name="WorkItemTree" Grid.Column="0" />
+        </Grid>
+
+</UserControl>
