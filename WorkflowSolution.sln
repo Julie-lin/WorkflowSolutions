@@ -55,8 +55,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.Activities", "Work
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{507420AE-8CC3-47FC-BCB9-9C1BB4B6C39D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowConsoleApplication1", "Tests\WorkflowConsoleApplication1\WorkflowConsoleApplication1.csproj", "{87F50683-146E-4915-B062-AC440BB8B3A2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -358,21 +356,6 @@ Global
 		{67CA57DB-0F28-4235-84F9-36A9AF320E9F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{67CA57DB-0F28-4235-84F9-36A9AF320E9F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{67CA57DB-0F28-4235-84F9-36A9AF320E9F}.Release|x86.ActiveCfg = Release|Any CPU
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Debug|x86.ActiveCfg = Debug|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Debug|x86.Build.0 = Debug|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Part1|Any CPU.ActiveCfg = Release|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Part1|Mixed Platforms.ActiveCfg = Release|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Part1|Mixed Platforms.Build.0 = Release|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Part1|x86.ActiveCfg = Release|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Part1|x86.Build.0 = Release|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Release|Any CPU.ActiveCfg = Release|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Release|Mixed Platforms.Build.0 = Release|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Release|x86.ActiveCfg = Release|x86
-		{87F50683-146E-4915-B062-AC440BB8B3A2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -397,6 +380,5 @@ Global
 		{E7294BEC-5ACF-435E-8D65-D123C04925CC} = {0AC8505B-C657-42CD-810E-E581F1949A15}
 		{466D0B5E-2BF7-4F0C-BE2C-54393403800E} = {F6792BA5-BA14-4680-9352-41AAFFC7CF17}
 		{67CA57DB-0F28-4235-84F9-36A9AF320E9F} = {F6792BA5-BA14-4680-9352-41AAFFC7CF17}
-		{87F50683-146E-4915-B062-AC440BB8B3A2} = {507420AE-8CC3-47FC-BCB9-9C1BB4B6C39D}
 	EndGlobalSection
 EndGlobal
