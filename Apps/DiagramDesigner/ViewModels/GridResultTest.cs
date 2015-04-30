@@ -10,6 +10,8 @@ namespace DiagramDesigner.ViewModels
     public class GridResultTest : ViewModelBase
     {
 
+
+
         public GridResultTest(string s, double mass,  double rt, int iTest)
         {
             TestString = s;
