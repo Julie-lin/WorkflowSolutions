@@ -17,6 +17,8 @@ namespace DiagramDesigner
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+
+
             base.OnStartup(e);
             ProcessRunTimeLocator.RegisterMnemeComponent();
             Window1 mainWindow = new Window1();
