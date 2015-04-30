@@ -110,6 +110,7 @@ namespace DiagramDesigner
                         DesignerCanvas.SetTop(newItem, Math.Max(0, position.Y));
                     }
 
+
                     Canvas.SetZIndex(newItem, this.Children.Count);
                     this.Children.Add(newItem);                    
                     SetConnectorDecoratorTemplate(newItem);
