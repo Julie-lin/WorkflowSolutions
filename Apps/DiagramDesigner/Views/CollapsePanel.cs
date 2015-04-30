@@ -9,6 +9,7 @@ namespace DiagramDesigner.Views
 {
     public class CollapsePanel : UserControl
     {
+
         // CONSTRUCTOR
         // --------------------------------------------------------------------------------
         public CollapsePanel()

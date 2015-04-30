@@ -217,6 +217,7 @@ namespace DiagramDesigner.Views
             }
         }
 
+
         private void GetSummaryButton_Click(object sender, RoutedEventArgs e)
         {
             _viewMode.GetSummaryButton_Click(sender, e);
